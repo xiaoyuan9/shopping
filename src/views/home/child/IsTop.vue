@@ -47,12 +47,13 @@
     .title .titleItem{
         flex: 1;
         margin: 0 25px;
+        font-size: 13px;
     }
     .title{
         display: flex;
         text-align: center;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         padding: 0 10px;
         margin-bottom: 5px;
         box-sizing: border-box;

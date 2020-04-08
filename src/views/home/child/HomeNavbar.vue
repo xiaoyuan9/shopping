@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navbar bg="rgb(249, 73, 111)">
+        <Navbar bg="#FF4852">
             <div slot="left"></div>
             <div slot="center" :style="{color:color}">购物街</div>
             <div slot="right"></div>

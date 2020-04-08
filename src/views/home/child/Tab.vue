@@ -101,6 +101,7 @@
         padding-left: 5px;
         box-sizing: border-box;
         margin-bottom: 5px;
+        color: #666;
     }
     .goodsItem img{
         width: 100%;
@@ -123,17 +124,18 @@
         flex-wrap:wrap;
     }
     .active{
-        border-bottom: solid 3px red;
+        border-bottom: solid 3px #ffaaaa;
     }
     .title .titleItem{
         flex: 1;
         margin: 0 25px;
+        font-size: 13px;
     }
     .title{
         display: flex;
         text-align: center;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         padding: 0 10px;
         margin-bottom: 5px;
         box-sizing: border-box;

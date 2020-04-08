@@ -4,10 +4,8 @@
     <HomeNavbar color="#fff"></HomeNavbar>
     <IsTop
             :title="['流行','新款','精选']"
-            :goods="goods[producttype].list"
             @click="tabclick"
             color="#faa"
-            :scroll="scroll"
             v-show="isTop"
             :activetabindex="activetabindex">
     </IsTop>
@@ -81,10 +79,11 @@
             scrollEvent(){
                 this.scroll =  new BScroll('.main',{
                     pullUpLoad:true,
-                    click:true
+                    click:true,
+                    mouseWheel: true//pc端鼠标滚轮滑动
                 })
                 this.scroll.on('pullingUp',()=>{
-                    //下拉加载商品
+                    //下拉加载更多商品
                     console.log("下拉加载")
                     this.scroll.finishPullUp()
                     this.productList(this.producttype)
