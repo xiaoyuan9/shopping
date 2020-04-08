@@ -1,7 +1,7 @@
 <template>
     <div class="pop">
         <a :href="poplink.link">
-            <img src="~assets/img/recommend_bg.jpg" alt="">
+            <img src="~assets/img/home/recommend_bg.jpg" alt="">
         </a>
     </div>
 </template>

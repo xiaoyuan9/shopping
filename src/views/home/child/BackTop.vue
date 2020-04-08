@@ -1,6 +1,6 @@
 <template>
     <div class="backtop"  v-show="showtop">
-        <van-icon name="upgrade" :color="color" size="3em" @click="backtop"/>
+        <div @click="backtop" class="icon"></div>
     </div>
 </template>
 
@@ -12,11 +12,7 @@
         name: "BackTop",
         props:{
             dom:{},
-            showtop:{},
-            color:{
-                type:String,
-                default:'red'
-            }
+            showtop:{}
         },
         data(){
             return {
@@ -33,6 +29,14 @@
 </script>
 
 <style scoped>
+    .icon::after{
+        content: "";
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-image: url("~assets/img/common/top.png");
+        background-size: 50px 50px;
+    }
     .backtop {
         position: fixed;
         right: 10px;
