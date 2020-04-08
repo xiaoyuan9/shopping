@@ -55,6 +55,6 @@
     margin: 5px auto 0px;
   }
   .tabbar-item > span {
-    font-size: 18px;
+    font-size: 13px;
   }
 </style>

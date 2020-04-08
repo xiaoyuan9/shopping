@@ -27,6 +27,7 @@
         margin-top:10px;
         padding-bottom: 10px;
         border-bottom: solid 10px rgba(0,0,0,.1);
+        justify-content: space-around;
     }
     .recommend img{
         width: 80%;

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <keep-alive include="Home">
+<!--    <keep-alive include="Home">-->
       <router-view/>
-    </keep-alive>
+<!--    </keep-alive>-->
     <mainbar></mainbar>
   </div>
 </template>

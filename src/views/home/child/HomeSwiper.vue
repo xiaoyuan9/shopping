@@ -29,7 +29,7 @@
                         el: '.swiper-pagination'
                     },
                     autoplay: {
-                        delay: 500
+                        delay: 3000
                     },
                     loop : true
                 }

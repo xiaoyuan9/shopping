@@ -38,7 +38,7 @@
   width: 100vw;
   display: flex;
   text-align: center;
-  box-shadow: 0 -1px 0px #e9e9e9;
+  box-shadow: 0 -1px 1px #e9e9e9;
   z-index:10000;
   background: rgb(255,255,255);
 }

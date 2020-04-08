@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: "Navbar",
+       name: "Navbar",
        props:{
             bg:{
                 type:String,
@@ -31,6 +31,7 @@
         display: flex;
         text-align: center;
         line-height: 50px;
+        box-shadow: 0 1px 1px #e9e9e9;
     }
     .navbar>.center{
         flex: 1;
@@ -38,6 +39,4 @@
     .navbar>.left,.navbar>.right{
         width: 50px;
     }
-
-
 </style>

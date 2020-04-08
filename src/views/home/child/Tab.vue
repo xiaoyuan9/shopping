@@ -1,21 +1,23 @@
 <template>
-    <div class="tab" ref="tab" v-show="a">
-        <div class="title">
+    <div class="tab">
+        <div class="title" v-show="!isTop">
             <span
                 class="titleItem"
                 @click="activeTab(index)"
                 v-for="(item,index) in title"
-                :class="{active:index==activeindex,}"
-                :style="{color:index==activeindex?color:'#333'}">{{item}}
+                :class="{active:index==activetabindex,}"
+                :style="{color:index==activetabindex?color:'#333'}">{{item}}
             </span>
         </div>
         <div class="goods">
-            <div class="goodsItem" v-for="(item,index) in goods">
-                <img :src="item.show.img" alt="">
-                <p class="descript">{{item.title}}</p>
-                <span class="price">￥<span>{{item.price | filterLike}}</span></span>
-                <span class="like">{{item.cfav | filterLike}}</span>
-            </div>
+            <a class="goodsItem" v-for="(item,index) in goods" :href="item.link">
+                <img :src="item.show.img" alt="" @load="imgLoad">
+                <div class="content">
+                    <p class="descript">{{item.title}}</p>
+                    <span class="price">￥<span>{{item.price | filterLike}}</span></span>
+                    <span class="like">{{item.cfav | filterLike}}</span>
+                </div>
+            </a>
         </div>
     </div>
 </template>
@@ -24,51 +26,50 @@
     export default {
         name: "Tab",
         props:{
-            dom:{},
+            activetabindex:{
+                type:Number,
+                default:0
+            },
+            isTop:{
+                type:Boolean,
+                default:true
+            },
+            scroll:{
+                type:Object,
+                default(){
+                    return {}
+                }
+            },
             color:{
                 type:String,
-                defautl:'red'
+                default:'red'
             },
             title:{
                 type:Array,
-                defautl(){
+                default(){
                     return ['流行','新款','精选']
                 }
             },
             goods:{
                 type:Array,
-                defautl(){
+                default(){
                     return []
                 }
             }
         },
-        data(){
-            return{
-                activeindex:0,
-                offsettop:0
-            }
-        },
-        created(){
-
-        },
-        computed:{
-            a(){
-                console.log(this.$refs.tab)
-                return true
-                // if(this.$refs.tab.offsetTop-this.dom.scrollTop<50){
-                //     return true
-                // }
-            }
-        },
         methods:{
+            //图片加载
+            imgLoad(){
+                this.scroll.refresh()
+            },
+            //选中标签
             activeTab(index){
-                this.activeindex = index
                 this.$emit('click',index)
             }
         },
         filters:{
             filterLike(val){
-                return val>10000?val/1000+"万":val
+                return val>10000?(val/1000).toFixed(2)+"万":val
             }
         }
     }
@@ -78,34 +79,47 @@
     .goodsItem .like::before{
         content: "";
         display: inline-block;
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         background-image: url("~assets/img/common/collect.svg");
-        background-size: 14px 14px;
-    }
-    .goodsItem .like{
-
+        background-size: 16px 16px;
+        background-position: 0 1px;
+        background-repeat: no-repeat;
     }
     .goodsItem .price>span{
         font-size: 18px;
     }
     .goodsItem .price{
         color: red;
+        margin-left: 30px;
+        margin-right: 10px;
     }
     .goodsItem .descript{
-       white-space: nowrap;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        padding-left: 5px;
+        box-sizing: border-box;
+        margin-bottom: 5px;
     }
     .goodsItem img{
         width: 100%;
     }
+    .goodsItem .content{
+        width: 100%;
+        position: absolute;
+        bottom: 20px;
+    }
     .goodsItem{
-        width: 40%;
+        width: 48%;
+        border:solid 2px #eee;
+        padding-bottom: 80px;
+        position: relative;
+        margin-bottom: 10px;
     }
     .goods{
         display: flex;
-        justify-content: space-around;
+        justify-content:space-around;
         flex-wrap:wrap;
     }
     .active{

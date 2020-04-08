@@ -1,6 +1,6 @@
 <template>
     <div>
-      <Tabbar activeColor="#39a9ed">
+      <Tabbar activeColor="rgb(255,105,156)">
         <template>
         <Tabbaritem path="/home">
           <img src="~assets/img/tabbar/home.svg" alt="" slot="item-img">
